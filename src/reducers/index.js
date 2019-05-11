@@ -1,11 +1,27 @@
 import { combineReducers } from 'redux';
 
 const customerFormReducer = (state = {}, action) => {
-    if (action.type === 'CHANGE_FORM') {
-        return action.payload.newState;
+    /*
+    if (action.type === 'CHANGE_FORM_FIELD') {
+        return {
+            ...state,
+            ...action.payload.newState
+        }
     }
 
     return state;
+    */
+    switch(action.type) {
+        case 'UPDATE_FIRST_NAME':
+        case 'UPDATE_MIDDLE_NAME':    
+        case 'UPDATE_LAST_NAME':
+            return {
+            ...state,
+            ...action.payload.newState
+            }
+        default:
+            return state;
+    }
 };
 
 const pricesReducer = (state = '', action) => {

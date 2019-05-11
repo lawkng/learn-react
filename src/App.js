@@ -3,7 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { actionChangeFormFirstName, actionChangePrice } from './actions';
+import { 
+  actionUpdateFormField,
+  actionUpdateFirstName,
+  actionUpdateMiddleName,
+  actionUpdateLastName
+} from './actions';
 
 import { Customform, Jsonform } from './components/customform.js';
 import Menu from './components/menu.js';
@@ -30,7 +35,12 @@ class App extends Component {
         <Menu></Menu>
         <Customform
           firstNameVal={this.props.firstname}
-          updateFirstName={this.props.actionChangeFormFirstName}></Customform>
+          middleNameVal={this.props.middlename}
+          lastNameVal={this.props.lastname}
+          updateFirstName={this.props.updateFirstName}
+          updateMiddleName={this.props.updateMiddleName}
+          updateLastName={this.props.updateLastName} >
+          </Customform>
         <RadioGroup
           selectedRadioValue="Male"
           models={[
@@ -75,12 +85,17 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   firstname: state.customer.firstname,
+  middlename: state.customer.middlename,
+  lastname: state.customer.lastname,
   prices: state.prices
 })
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actionChangeFormFirstName: (val) => { dispatch(actionChangeFormFirstName(val)) }
+    actionUpdateFormField: (val) => { dispatch(actionUpdateFormField(val)) },
+    updateFirstName: (val) => { dispatch(actionUpdateFirstName(val)) },
+    updateMiddleName: (val) => { dispatch(actionUpdateMiddleName(val)) },
+    updateLastName: (val) => { dispatch(actionUpdateLastName(val)) }
   }
 }
 

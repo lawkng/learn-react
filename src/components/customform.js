@@ -170,19 +170,23 @@ export const Customform = (props) => {
                     type="text"
                     textvalue={props.firstNameVal}
                     validateSuccess={props.updateFirstName}
-                    validationRegExp="[a-zA-Z]{3,}$"></InputGroup>
+                    validationRegExp="[a-zA-Z]{1,}$"></InputGroup>
                 <InputGroup
                     id="text2"
                     errorText="Please enter middle name"
                     text="Middle name"
                     type="text"
-                    validationRegExp="[a-zA-Z]{3,}$"></InputGroup>
+                    textvalue={props.middleNameVal}
+                    validateSuccess={props.updateMiddleName}
+                    validationRegExp="[a-zA-Z]{1,}$"></InputGroup>
                 <InputGroup
                     id="text3"
                     errorText="Please enter last name"
                     text="Last name"
                     type="text"
-                    validationRegExp="[a-zA-Z]{3,}$"></InputGroup>
+                    textvalue={props.lastNameVal}
+                    validateSuccess={props.updateLastName}
+                    validationRegExp="[a-zA-Z]{1,}$"></InputGroup>
                 <div className="button-group">
                     <ContinueButton buttonText="Continue..."></ContinueButton>
                 </div>

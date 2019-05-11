@@ -9,7 +9,8 @@ import { configureStore } from './configureStore';
 const initData = {
     customer: {
         firstname: 'John',
-        lastname: ''
+        middlename: 'G',
+        lastname: 'Lake'
     },
     prices: '10'
 }
