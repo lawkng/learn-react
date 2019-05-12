@@ -44,9 +44,14 @@ export const actionUpdateLastName = (val) => {
     }
 };
 
-export const actionChangePrice = {
-    type: 'CHANGE_PRICE',
-    payload: {
-        newState: '20'
+export const actionAddCrypto = (cname = '', cprice = '') => {
+    return {
+        type: 'ADD_CRYPTO',
+        payload: {
+            newState: {
+                name: cname,
+                price: cprice
+            }
+        }
     }
-};
+}

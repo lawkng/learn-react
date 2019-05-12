@@ -31,8 +31,19 @@ const pricesReducer = (state = '', action) => {
     return state;
 };
 
+const cryptoReducer = (state = [], action) => {
+    if (action.type === 'ADD_CRYPTO') {
+        return [
+            ...state,
+            action.payload.newState
+        ]
+    }
+    return state;
+};
+
 const allReducers = combineReducers({
     customer: customerFormReducer,
+    crypto: cryptoReducer,
     prices: pricesReducer
 });
 

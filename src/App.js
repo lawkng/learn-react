@@ -7,9 +7,11 @@ import {
   actionUpdateFormField,
   actionUpdateFirstName,
   actionUpdateMiddleName,
-  actionUpdateLastName
+  actionUpdateLastName,
+  actionAddCrypto
 } from './actions';
 
+import { Cryptoform } from './components/cryptoform.js';
 import { Customform, Jsonform } from './components/customform.js';
 import Menu from './components/menu.js';
 import { RadioGroup } from './components/radio.js';
@@ -40,7 +42,10 @@ class App extends Component {
           updateFirstName={this.props.updateFirstName}
           updateMiddleName={this.props.updateMiddleName}
           updateLastName={this.props.updateLastName} >
-          </Customform>
+        </Customform>
+        <Cryptoform
+          addHandler={this.props.addCryptocurrency}
+          models={this.props.crypto}></Cryptoform>
         <RadioGroup
           selectedRadioValue="Male"
           models={[
@@ -87,7 +92,8 @@ const mapStateToProps = (state) => ({
   firstname: state.customer.firstname,
   middlename: state.customer.middlename,
   lastname: state.customer.lastname,
-  prices: state.prices
+  prices: state.prices,
+  crypto: state.crypto
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -95,7 +101,8 @@ const mapDispatchToProps = (dispatch) => {
     actionUpdateFormField: (val) => { dispatch(actionUpdateFormField(val)) },
     updateFirstName: (val) => { dispatch(actionUpdateFirstName(val)) },
     updateMiddleName: (val) => { dispatch(actionUpdateMiddleName(val)) },
-    updateLastName: (val) => { dispatch(actionUpdateLastName(val)) }
+    updateLastName: (val) => { dispatch(actionUpdateLastName(val)) },
+    addCryptocurrency: (name, price) => { dispatch(actionAddCrypto(name, price)) }
   }
 }
 

@@ -12,7 +12,11 @@ const initData = {
         middlename: 'G',
         lastname: 'Lake'
     },
-    prices: '10'
+    prices: '10',
+    crypto: [{
+        name: 'BTC',
+        price: '8000'
+    }]
 }
 const store = configureStore(initData);
 

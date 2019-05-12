@@ -31,9 +31,8 @@ export const InputElement = (props) => {
         }
         if (inputValidated) {
             // it is an validate value so we can put it into the Store
-            console.log('Call some action to this value into the restore.');
-            //TODO call action to update redux here
-            props.validateSuccess(event.target.value);
+            // call action to update redux here
+            props.validateSuccess && props.validateSuccess(event.target.value);
         }
     }
 
